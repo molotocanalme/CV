@@ -1,65 +1,129 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="sq">
 <head>
-  <meta charset="utf-8">
-  <title>Prove`s Personal Site</title>
-<link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shërbime Përkthimi Profesionale</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Ngjyra gri e lehtë */
+            color: #333; /* Ngjyra e tekstit */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #fff; /* Sfondi i bardhë */
+            color: #333; /* Teksti i zi */
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .showcase {
+            min-height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #5f9ea0; /* Ngjyra e kaltër e hirtë */
+            color: #fff; /* Teksti i bardhë */
+            animation: fadeIn 2s;
+        }
+        .showcase h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .showcase p {
+            font-size: 1.5em;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        section {
+            padding: 20px 0;
+            text-align: center;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        footer {
+            background: #fff; /* Sfondi i bardhë */
+            color: #333; /* Teksti i zi */
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .highlight {
+            color: #ff6600; /* Ngjyra e dukshme dhe koherente me sfondin */
+        }
+    </style>
 </head>
-
 <body>
-  <table cellspacing="20">
-    <td><img src="arianit.png.png" alt="arianit profile picture"></td>
-    <td>
-      <h1>Prove Org</h1>
-      <p><em>E-learning <strong><a href="https://www.lingoda.com/">Language Profesor</a></strong>.</em></p>
-      <p>I am a french language teacher. I ♥ sport and playing guitar.</p>
-      <hr>
-    </td>
-    </tr>
-  </table>
-  <h3>Books and Teaching</h3>
-  <ul>
-    <li>Transmettre, apprendre</li>
-    <li>Le developpement de l`enfant</li>
-  </ul>
-  <hr>
-  <h3>Work Experience</h3>
-  <table cellspacing="10">
-    <thead>
-      <tr>
-        <th>Dates</th>
-        <th>Work</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>2010-2013</td>
-        <td>Student in Paris</td>
-      </tr>
-      <td>2010</td>
-      <td>Resercher at the University of Lausanne</td>
-      <table>
-        <hr>
-        <h3>Skills</h3>
-        <table spellspacing="10" border="1">
-          <tr>
-            <td>Guitar</td>
-            <td>⭐⭐⭐⭐⭐</td>
-          </tr>
-          <tr>
-            <td>Photography</td>
-            <td>⭐⭐⭐</td>
-          </tr>
-          <tr>
-            <td>Painting</td>
-            <td>⭐⭐</td>
-          </tr>
-        </table>
-        <hr>
-        <a href="Hobbies.html">My Hobbies</a>
-        <a href="contact-me.html">Contact Me</a>
+    <header>
+        <div class="container">
+            <h1>Shërbime Përkthimi Profesionale</h1>
+            <nav>
+                <ul>
+                    <li><a href="#sherbimet">Shërbimet</a></li>
+                    <li><a href="#kontaktoni">Kontaktoni</a></li>
+                    <li><a href="#video">Video</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <body>
+    <section class="showcase">
+        <div class="container">
+            <h1>Mirë se vini në Shërbime Përkthimi Profesionale</h1>
+            <p>Ofrojmë përkthime profesionale dhe të sakta për të gjitha nevojat tuaja.</p>
+        </div>
+    </section>
 
-        </body>
+    <section id="sherbimet" class="container">
+        <h2>Shërbimet Tona</h2>
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1AGu8omIAMBTbVvJYgWNuTi5gy47yBOrr/preview" width="640" height="480" allow="autoplay"></iframe>
+        </div>
+    </section>
+
+    <section id="kontaktoni" class="container">
+        <h2>Kontaktoni</h2>
+        <p>Për më shumë informacion, kontaktoni: <a href="mailto:murati.arianit@gmail.com" class="highlight">murati.arianit@gmail.com</a> ose telefononi në <span class="highlight">+383 45 569 246</span>.</p>
+    </section>
+
+    <section id="video" class="container">
+        <h2>Video</h2>
+        <p>Shikoni videon tonë për të mësuar më shumë rreth shërbimeve tona.</p>
+    </section>
+
+    <footer>
+        <p>© 2024 Shërbime Përkthimi Profesionale. Të gjitha të drejtat e rezervuara.</p>
+    </footer>
+</body>
+</html>
