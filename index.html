@@ -1,129 +1,177 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shërbime Përkthimi Profesionale</title>
+    <title>Content Marketing Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0; /* Ngjyra gri e lehtë */
-            color: #333; /* Ngjyra e tekstit */
+            background: linear-gradient(135deg, #000020, #000033); /* Gradient për sfondin e faqes së parë */
+            color: #d3d3d3; /* Ngjyra e hirtë për tekstin */
+            transition: background 3s ease-in-out; /* Për të bërë ndryshimin gradual të sfondit */
         }
         .container {
             width: 80%;
-            margin: auto;
-            overflow: hidden;
+            margin: 0 auto;
+            position: relative; /* Për të pozicionuar topat dhe kubet */
         }
-        header {
-            background: #fff; /* Sfondi i bardhë */
-            color: #333; /* Teksti i zi */
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 1em;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        nav ul {
-            padding: 0;
-            list-style: none;
-            text-align: center;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #333;
+        .navbar a {
+            color: white;
             text-decoration: none;
-            font-size: 1.2em;
+            padding: 0.5em 1em;
+            transition: background-color 0.3s, color 0.3s; /* Për animacion të butë */
         }
-        .showcase {
-            min-height: 400px;
+        .navbar a:hover {
+            background-color: orange; /* Ngjyra portokalli kur kalon mbi to mausi */
+            color: black; /* Ngjyra e tekstit kur kalon mbi to mausi */
+        }
+        .social-icons {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: #5f9ea0; /* Ngjyra e kaltër e hirtë */
-            color: #fff; /* Teksti i bardhë */
-            animation: fadeIn 2s;
+            gap: 1em;
         }
-        .showcase h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        .showcase p {
+        .social-icons a {
+            color: white;
+            text-decoration: none;
             font-size: 1.5em;
+            transition: color 0.3s; /* Për animacion të butë */
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .social-icons a:hover {
+            color: orange; /* Ngjyra portokalli kur kalon mbi to mausi */
         }
-        section {
-            padding: 20px 0;
-            text-align: center;
+        .content {
+            border: 1px solid #ddd;
+            padding: 2em;
+            margin-top: 1em;
+            background-color: #1a1a1a; /* Ngjyra e sfondit për përmbajtjen */
         }
-        .video-container {
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background-color: orange;
+        }
+        .shape.square {
+            border-radius: 0;
+            background-color: white;
+        }
+        .shape.orange-square {
+            border-radius: 0;
+            background-color: orange;
+        }
+        .video-container, .services-container, .contact-container {
+            margin-top: 1em;
+            background: linear-gradient(135deg, #FFA500, #FFFFFF); /* Gradient portokalli dhe i bardhë */
+            padding: 1em;
+            border-radius: 10px;
+            color: black; /* Ngjyra e zezë për tekstin */
+        }
+        .video-container h3, .services-container h2, .contact-container h2 {
+            color: black; /* Ngjyra e zezë për titujt */
+        }
+        .floating-text {
+            animation: float 3s ease-in-out infinite;
+            text-align: center; /* Për të vendosur tekstin në mes */
+        }
+        .services-container ul {
+            list-style-type: none; /* Për të hequr pikat e renditjes */
+            padding: 0;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .video-row {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
         }
-        footer {
-            background: #fff; /* Sfondi i bardhë */
-            color: #333; /* Teksti i zi */
-            text-align: center;
-            padding: 10px 0;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .highlight {
-            color: #ff6600; /* Ngjyra e dukshme dhe koherente me sfondin */
+        .video-container iframe {
+            width: 300px; /* Gjerësia e re për videot */
+            height: 200px; /* Lartësia e re për videot */
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Shërbime Përkthimi Profesionale</h1>
-            <nav>
+    <div class="container">
+        <div class="navbar">
+            <div class="nav-links">
+                <a href="#" onclick="showSection('about')">About</a>
+                <a href="#" onclick="showSection('services')">Services</a>
+                <a href="#" onclick="showSection('video')">Video</a>
+                <a href="#" onclick="showSection('contact')">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div id="about" class="section active">
+                <p> Shërbime përkthimi të besueshme për të gjitha nevojat tuaja ligjore dhe mediatike nga frëngjishtja në shqip dhe anasjelltas.</p>
+            </div>
+            <div id="services" class="section services-container">
                 <ul>
-                    <li><a href="#sherbimet">Shërbimet</a></li>
-                    <li><a href="#kontaktoni">Kontaktoni</a></li>
-                    <li><a href="#video">Video</a></li>
+                    <li class="floating-text">Përkthime Ligjore</li>
+                    <li class="floating-text">Përkthime Mjekësore</li>
+                    <li class="floating-text">Përkthime Teknike</li>
+                    <li class="floating-text">Përkthime Reklamuese</li>
+                    <li class="floating-text">Përkthime Mediatike</li>
+                    <li class="floating-text">Përkthime Administrative</li>
+                    <li class="floating-text">Përkthime të Etiketave të Ushqimeve</li>
                 </ul>
-            </nav>
+            </div>
+            <div id="video" class="section">
+                <div class="video-row">
+                    <div class="video-container">
+                        <h3>1 minutë në gjuhën shqipe</h3>
+                        <iframe src="https://drive.google.com/file/d/17aReN5sGgcSbZQmdiClIEduKTdQWpxHh/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="video-container">
+                        <h3>1 minute en français</h3>
+                        <iframe src="https://drive.google.com/file/d/1aRXqp3Q4FtOi8ABf-whxadzhNRVPySnE/preview" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div id="contact" class="section contact-container">
+                <p>Email: murati.arianit@gmail.com</p>
+                <p>Tel: +38345569246</p>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <section class="showcase">
-        <div class="container">
-            <h1>Mirë se vini në Shërbime Përkthimi Profesionale</h1>
-            <p>Ofrojmë përkthime profesionale dhe të sakta për të gjitha nevojat tuaja.</p>
-        </div>
-    </section>
+    <!-- Topa dhe kube të shpërndarë në mënyrë të harmonishme -->
+    <div class="shape" style="top: 10%; left: 15%; width: 30px; height: 30px;"></div>
+    <div class="shape" style="top: 50%; left: 20%; width: 40px; height: 40px;"></div>
+    <div class="shape square" style="top: 20%; left: 70%; width: 30px; height: 30px;"></div>
+    <div class="shape square" style="top: 60%; left: 10%; width: 40px; height: 40px;"></div>
 
-    <section id="sherbimet" class="container">
-        <h2>Shërbimet Tona</h2>
-        <div class="video-container">
-            <iframe src="https://drive.google.com/file/d/1AGu8omIAMBTbVvJYgWNuTi5gy47yBOrr/preview" width="640" height="480" allow="autoplay"></iframe>
-        </div>
-    </section>
-
-    <section id="kontaktoni" class="container">
-        <h2>Kontaktoni</h2>
-        <p>Për më shumë informacion, kontaktoni: <a href="mailto:murati.arianit@gmail.com" class="highlight">murati.arianit@gmail.com</a> ose telefononi në <span class="highlight">+383 45 569 246</span>.</p>
-    </section>
-
-    <section id="video" class="container">
-        <h2>Video</h2>
-        <p>Shikoni videon tonë për të mësuar më shumë rreth shërbimeve tona.</p>
-    </section>
-
-    <footer>
-        <p>© 2024 Shërbime Përkthimi Profesionale. Të gjitha të drejtat e rezervuara.</p>
-    </footer>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
